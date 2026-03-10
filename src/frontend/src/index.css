@@ -1,0 +1,134 @@
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/assets/fonts/JetBrainsMono[wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/assets/fonts/Outfit[wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0 0;
+    --foreground: 0.98 0 0;
+    --card: 0.06 0 0;
+    --card-foreground: 0.98 0 0;
+    --popover: 0.08 0 0;
+    --popover-foreground: 0.98 0 0;
+    --primary: 0.85 0.29 142;
+    --primary-foreground: 0 0 0;
+    --secondary: 0.12 0 0;
+    --secondary-foreground: 0.85 0 0;
+    --muted: 0.12 0 0;
+    --muted-foreground: 0.55 0 0;
+    --accent: 0.85 0.29 142;
+    --accent-foreground: 0 0 0;
+    --destructive: 0.62 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+    --border: 0.18 0 0;
+    --input: 0.12 0 0;
+    --ring: 0.85 0.29 142;
+    --radius: 0.5rem;
+    --chart-1: 0.85 0.29 142;
+    --chart-2: 0.65 0.22 293;
+    --chart-3: 0.65 0.22 25;
+    --chart-4: 0.65 0.18 230;
+    --chart-5: 0.75 0.18 60;
+    --sidebar: 0.04 0 0;
+    --sidebar-foreground: 0.85 0 0;
+    --sidebar-primary: 0.85 0.29 142;
+    --sidebar-primary-foreground: 0 0 0;
+    --sidebar-accent: 0.1 0 0;
+    --sidebar-accent-foreground: 0.85 0 0;
+    --sidebar-border: 0.14 0 0;
+    --sidebar-ring: 0.85 0.29 142;
+
+    /* Module accent colors */
+    --study-color: 0.65 0.22 293;
+    --gym-color: 0.65 0.22 25;
+    --nutrition-color: 0.85 0.29 142;
+    --sleep-color: 0.65 0.18 230;
+    --nmb-color: 0.75 0.18 60;
+  }
+
+  * {
+    border-color: oklch(var(--border));
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: oklch(var(--background));
+    color: oklch(var(--foreground));
+    font-family: "Outfit", sans-serif;
+    font-size: 16px;
+    overscroll-behavior: none;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .axiom-card {
+    @apply rounded-xl border bg-card p-4;
+  }
+
+  .mono {
+    font-family: "JetBrains Mono", monospace;
+  }
+
+  .green-glow {
+    box-shadow: 0 0 12px oklch(var(--primary) / 0.4);
+  }
+
+  .green-text {
+    color: oklch(var(--primary));
+  }
+
+  /* Scrollbar hide */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Protocol Mode pulse animation */
+@keyframes pulse-green {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.pulse-green {
+  animation: pulse-green 2s ease-in-out infinite;
+}
+
+@keyframes sweep {
+  from {
+    stroke-dashoffset: 283;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
